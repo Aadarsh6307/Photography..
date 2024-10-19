@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nature Photography</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        h1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 15px;
+        }
+        .photo-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        .photo-container img {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+            border: 5px solid #ddd;
+            border-radius: 10px;
+        }
+        .buttons {
+            margin-top: 15px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Nature Photography Gallery</h1>
+
+    <div class="photo-container">
+        <img id="naturePhoto" src="https://example.com/mountain.jpg" alt="Mountain">
+    </div>
+
+    <div class="buttons">
+        <button onclick="prevPhoto()">Previous Photo</button>
+        <button onclick="nextPhoto()">Next Photo</button>
+    </div>
+
+    <script>
+        let photos = [
+            "https://example.com/mountain.jpg",
+            "https://example.com/forest.jpg",
+            "https://example.com/river.jpg",
+            "https://example.com/sunset.jpg"
+        ];
+        let currentPhotoIndex = 0;
+
+        function nextPhoto() {
+            currentPhotoIndex = (currentPhotoIndex + 1) % photos.length;
+            document.getElementById("naturePhoto").src = photos[currentPhotoIndex];
+        }
+
+        function prevPhoto() {
+            currentPhotoIndex = (currentPhotoIndex - 1 + photos.length) % photos.length;
+            document.getElementById("naturePhoto").src = photos[currentPhotoIndex];
+        }
+    </script>
+
+</body>
+</html>
